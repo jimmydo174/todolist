@@ -1,0 +1,41 @@
+<% include partials/header.ejs %>
+
+<div class="container">
+    <form id="new" action="/new" method="POST" style="max-width: 400px; margin: 0 auto;">
+        <div class="form-group">
+            <label id="todo">New Todo</label>
+            <input type="text" id="todo" class="form-control new" name="todo" placeholder="new todo">           
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-sm">Submit</button>          
+        </div>
+        
+    </form>
+    <div id="todo-list" style="max-width: 400px; margin: 0 auto; word-break: break-all; height: auto;" class="list-group">
+        <% todos.forEach(function(todo, i){ %>
+            <div class="list-group-item pull-left" style="margin-top: 5px; width: 100%;">
+            <!-- Show Item -->
+                <p style="width: 70%; float: left"><%= todo.todo %></p>
+                <div style="float: left">
+                    <form class="form-delete" style="display: inline;" action="/<%= todo._id %>/delete" method="POST">
+                        <button class="btn btn-danger btn-sm pull-right" style="margin: 0;">Delete</button>
+                    </form>
+                    <button class="btn btn-warning btn-sm pull-right edit-item-btn" style="margin: 0; margin-right: 4px">Edit</button>
+                </div>
+            <!-- Edit Item From -->
+                <form action="/<%= todo._id%>/edit" method="POST" class="edit-item-form">
+                    <div class="form-group">
+                        <label for="edit-todo">Edit <%= todo.todo %></lable>
+                        <input id="edit-todo" class="form-control" type="text" name="todo" value="<%=todo.todo%>">
+                    </div>
+                    <button class="btn btn-primary btn-sm">Update</button>
+                </form>
+            </div>         
+        <% }); %>  
+    </div> 
+</div>
+
+
+
+
+<% include partials/footer.ejs %>

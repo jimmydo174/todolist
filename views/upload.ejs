@@ -1,0 +1,18 @@
+<% include partials/header.ejs %>
+<div class="container">
+	<form id="upload" action="/upload" method="POST" style="width: 400px; margin: 0 auto;" enctype="multipart/form-data">
+		<div class="form-group">
+			<input type="file" class="form-control" name="defaultnamefile">
+		</div>
+		<!-- progress bar -->
+		<div class="progress">
+			<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+				<span class="sr-only">% Complete</span>
+			</div>
+		</div>
+		<button class="btn btn-default">Upload</button>
+	</form>
+</div>
+
+
+<% include partials/footer.ejs %>
