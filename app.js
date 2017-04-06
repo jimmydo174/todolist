@@ -112,6 +112,6 @@ app.post('/upload', upload.any(), function(req, res){
     });
 })
 
-app.listen(3000, function(req, res){
+app.listen(process.env.PORT, process.env.IP,, function(req, res){
     console.log("server started!");
 })
