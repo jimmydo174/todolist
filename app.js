@@ -21,7 +21,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
 
-mongoose.connect("mongodb://linh:anhyeuem123@ds153710.mlab.com:53710/todolist");
+mongoose.connect(process.env.databaseURL);
 
 var todoSchema = new mongoose.Schema({
     todo: String
